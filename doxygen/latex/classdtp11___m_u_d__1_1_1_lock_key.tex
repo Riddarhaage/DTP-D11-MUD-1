@@ -1,0 +1,75 @@
+\hypertarget{classdtp11___m_u_d__1_1_1_lock_key}{}\doxysection{dtp11\+\_\+\+MUD\+\_\+1.\+Lock\+Key Class Reference}
+\label{classdtp11___m_u_d__1_1_1_lock_key}\index{dtp11\_MUD\_1.LockKey@{dtp11\_MUD\_1.LockKey}}
+
+
+A class for opening doors between \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}}\+:s, the Lockkey is defined for two room numbers, and it can be adressed whether it really opens the door from one \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}} to another.  
+
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_lock_key_aa9a854c7946d6fcc946d17e04d5b49cb}{Lock\+Key}} (int room1, int room2)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_lock_key}{Lock\+Key}} constructor for two rooms  \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_lock_key_a347a829d9a24bc4d8b4d48853940f4bd}{Opens}} (int room1, int room2)
+\begin{DoxyCompactList}\small\item\em Ask key if it\textquotesingle{}s OK to open between two rooms  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_lock_key_a78259e5bd58b44103e06dc8aa74079c1}\label{classdtp11___m_u_d__1_1_1_lock_key_a78259e5bd58b44103e06dc8aa74079c1}} 
+int\mbox{[}$\,$\mbox{]} {\bfseries adj\+Rooms} = new int\mbox{[}2\mbox{]}
+\begin{DoxyCompactList}\small\item\em The number of the two rooms that the door spans in increasing order  \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class for opening doors between \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}}\+:s, the Lockkey is defined for two room numbers, and it can be adressed whether it really opens the door from one \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}} to another. 
+
+{\bfseries{weakness\+:}} the key cannot be used to actually open a door from \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}}, the \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}} code must detect whether the Lockkey fits a certain door, and then open it itself.  
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_lock_key_aa9a854c7946d6fcc946d17e04d5b49cb}\label{classdtp11___m_u_d__1_1_1_lock_key_aa9a854c7946d6fcc946d17e04d5b49cb}} 
+\index{dtp11\_MUD\_1.LockKey@{dtp11\_MUD\_1.LockKey}!LockKey@{LockKey}}
+\index{LockKey@{LockKey}!dtp11\_MUD\_1.LockKey@{dtp11\_MUD\_1.LockKey}}
+\doxysubsubsection{\texorpdfstring{LockKey()}{LockKey()}}
+{\footnotesize\ttfamily dtp11\+\_\+\+MUD\+\_\+1.\+Lock\+Key.\+Lock\+Key (\begin{DoxyParamCaption}\item[{int}]{room1,  }\item[{int}]{room2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_lock_key}{Lock\+Key}} constructor for two rooms  
+
+
+\begin{DoxyParams}{Parameters}
+{\em room1} & \\
+\hline
+{\em room2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Do something! \end{DoxyRefDesc}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_lock_key_a347a829d9a24bc4d8b4d48853940f4bd}\label{classdtp11___m_u_d__1_1_1_lock_key_a347a829d9a24bc4d8b4d48853940f4bd}} 
+\index{dtp11\_MUD\_1.LockKey@{dtp11\_MUD\_1.LockKey}!Opens@{Opens}}
+\index{Opens@{Opens}!dtp11\_MUD\_1.LockKey@{dtp11\_MUD\_1.LockKey}}
+\doxysubsubsection{\texorpdfstring{Opens()}{Opens()}}
+{\footnotesize\ttfamily bool dtp11\+\_\+\+MUD\+\_\+1.\+Lock\+Key.\+Opens (\begin{DoxyParamCaption}\item[{int}]{room1,  }\item[{int}]{room2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Ask key if it\textquotesingle{}s OK to open between two rooms  
+
+
+\begin{DoxyParams}{Parameters}
+{\em room1} & \\
+\hline
+{\em room2} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Room.\+cs\end{DoxyCompactItemize}

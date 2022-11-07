@@ -6,11 +6,30 @@ using System.Threading.Tasks;
 
 namespace dtp11_MUD_1
 {
+        /// <summary>
+        /// A class for opening doors between Room:s, the Lockkey is defined
+        /// for two room numbers, and it can be adressed whether it really
+        /// opens the door from one Room to another.
+        ///
+        /// <b>weakness:</b> the key cannot be used to actually open a door
+        /// from Room, the Room code must detect whether the Lockkey fits a
+        /// certain door, and then open it itself.
+        /// </summary>
     public class LockKey
     {
+        /// <summary>
+        /// The number of the two rooms that the door spans in
+        /// increasing order
+        /// </summary>
         public int[] adjRooms = new int[2];
+        /// <summary>
+        /// LockKey constructor for two rooms
+        /// </summary>
+        /// <param name="room1"></param>
+        /// <param name="room2"></param>
         public LockKey(int room1, int room2)
         {
+            /// \todo Do something!
             if (room1 < room2)
             {
                 adjRooms[0] = room1;
@@ -22,6 +41,12 @@ namespace dtp11_MUD_1
                 adjRooms[1] = room1;
             }
         }
+        /// <summary>
+        /// Ask key if it's OK to open between two rooms
+        /// </summary>
+        /// <param name="room1"></param>
+        /// <param name="room2"></param>
+        /// <returns></returns>
         public bool Opens(int room1, int room2)
         {
             if (room1 < room2)

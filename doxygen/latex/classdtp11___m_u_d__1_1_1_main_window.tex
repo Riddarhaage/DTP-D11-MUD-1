@@ -1,0 +1,70 @@
+\hypertarget{classdtp11___m_u_d__1_1_1_main_window}{}\doxysection{dtp11\+\_\+\+MUD\+\_\+1.\+Main\+Window Class Reference}
+\label{classdtp11___m_u_d__1_1_1_main_window}\index{dtp11\_MUD\_1.MainWindow@{dtp11\_MUD\_1.MainWindow}}
+
+
+\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_main_window}{Main\+Window}}\+: GUI interaction base class   
+
+
+Inheritance diagram for dtp11\+\_\+\+MUD\+\_\+1.\+Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=0.772414cm]{classdtp11___m_u_d__1_1_1_main_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a9a8b1f9294d98c52ed8bdcfe665ba8c3}\label{classdtp11___m_u_d__1_1_1_main_window_a9a8b1f9294d98c52ed8bdcfe665ba8c3}} 
+void {\bfseries Initialize\+Component} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a9a8b1f9294d98c52ed8bdcfe665ba8c3}\label{classdtp11___m_u_d__1_1_1_main_window_a9a8b1f9294d98c52ed8bdcfe665ba8c3}} 
+void {\bfseries Initialize\+Component} ()
+\begin{DoxyCompactList}\small\item\em Initialize\+Component  \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a6747f0af34981b96be6fbbbfebb7d50c}\label{classdtp11___m_u_d__1_1_1_main_window_a6747f0af34981b96be6fbbbfebb7d50c}} 
+void {\bfseries Application\+Key\+Press} (object sender, Key\+Event\+Args e)
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a4cfac5217f5c6a95a2f0af66daf2c4f5}\label{classdtp11___m_u_d__1_1_1_main_window_a4cfac5217f5c6a95a2f0af66daf2c4f5}} 
+void {\bfseries Display\+Current\+Room} ()
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_adc4b5ecd27ad2017c63617b379b550d8}\label{classdtp11___m_u_d__1_1_1_main_window_adc4b5ecd27ad2017c63617b379b550d8}} 
+string {\bfseries Create\+Directions\+Text} (\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}} R)
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_adeae532c9940600a83b8d6b96aee625a}\label{classdtp11___m_u_d__1_1_1_main_window_adeae532c9940600a83b8d6b96aee625a}} 
+void {\bfseries Draw\+Images} (string base\+Dir, \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}} R)
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a6dd0ab600909d569225d51f5a38433dc}\label{classdtp11___m_u_d__1_1_1_main_window_a6dd0ab600909d569225d51f5a38433dc}} 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. {\bfseries Connect} (int connection\+Id, object target)
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a6dd0ab600909d569225d51f5a38433dc}\label{classdtp11___m_u_d__1_1_1_main_window_a6dd0ab600909d569225d51f5a38433dc}} 
+void System.\+Windows.\+Markup.\+IComponent\+Connector. {\bfseries Connect} (int connection\+Id, object target)
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_ae3d3340512b94bf1b84ae8e8001203f7}\label{classdtp11___m_u_d__1_1_1_main_window_ae3d3340512b94bf1b84ae8e8001203f7}} 
+\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}}\mbox{[}$\,$\mbox{]} {\bfseries labyrinth} = new \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_room}{Room}}\mbox{[}100\mbox{]}
+\begin{DoxyCompactList}\small\item\em labyrinth contains the rooms in the game, it is used to find rooms  \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_af8d2ee75e0dc61bf64460173c0567caa}\label{classdtp11___m_u_d__1_1_1_main_window_af8d2ee75e0dc61bf64460173c0567caa}} 
+int {\bfseries current\+Room}
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a5f72b0fe6d3aabda57e9b5838645f724}\label{classdtp11___m_u_d__1_1_1_main_window_a5f72b0fe6d3aabda57e9b5838645f724}} 
+List$<$ \mbox{\hyperlink{classdtp11___m_u_d__1_1_1_lock_key}{Lock\+Key}} $>$ {\bfseries all\+Keys} = new List$<$\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_lock_key}{Lock\+Key}}$>$()
+\item 
+\mbox{\Hypertarget{classdtp11___m_u_d__1_1_1_main_window_a1551c2da5b9e610a7452e46ed74ab047}\label{classdtp11___m_u_d__1_1_1_main_window_a1551c2da5b9e610a7452e46ed74ab047}} 
+bool {\bfseries \+\_\+content\+Loaded}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_main_window}{Main\+Window}}\+: GUI interaction base class  
+
+\mbox{\hyperlink{classdtp11___m_u_d__1_1_1_main_window}{Main\+Window}}  
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Main\+Window.\+xaml.\+cs\item 
+obj/\+Debug/net6.\+0-\/windows/Main\+Window.\+g.\+cs\item 
+obj/\+Debug/net6.\+0-\/windows/Main\+Window.\+g.\+i.\+cs\end{DoxyCompactItemize}
