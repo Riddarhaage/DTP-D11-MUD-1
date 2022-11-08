@@ -102,7 +102,7 @@ namespace dtp11_MUD_1
         public List<string> imageFile = new List<string>();
         public int[] adjacent = new int[4]; // adjacent[Room.North] etc.
         public bool[] isOpen = new bool[4]; // isOpen[Room.North] etc.
-        //public Door[] doors = new Door[4];
+        public Door[] door = new Door[4];
 
         // Stuff in this room:
         public List<LockKey> keys = new List<LockKey>();
@@ -138,6 +138,13 @@ namespace dtp11_MUD_1
             setNextRoom(South, S);
             setNextRoom(West, W);
         }
+        public void setDoors(Door N, Door E, Door S, Door W)
+        {
+            door[North] = N;
+            door[East] = E;
+            door[South] = S;
+            door[West] = W;
+        }
         private int GetNextRoom(int direction)
         {
             int N = adjacent[direction];
@@ -146,6 +153,10 @@ namespace dtp11_MUD_1
             if (!isOpen[direction]) return number;
             return adjacent[direction];
         }
+        public Door GetNorthDoor() => door[North];
+        public Door GetSouthDoor() => door[South];
+        public Door GetWestDoor() => door[West];
+        public Door GetEastDoor() => door[East];
         public int GetNorth() => GetNextRoom(North);
         public int GetEast() => GetNextRoom(East);
         public int GetSouth() => GetNextRoom(South);

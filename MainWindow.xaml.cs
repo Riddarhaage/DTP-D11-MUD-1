@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace dtp11_MUD_1
 {
@@ -42,7 +43,6 @@ namespace dtp11_MUD_1
             R.SetImage("garbage-left.png");
             R.HasKey(0, 3);
             lab[0] = R;
-            lab[0].SetDirections(N: -3, E: noDoor, S: noDoor, W: noDoor);
 
             R = new Room(1, "Lagerrum väst");
             R.SetStory("Du står i ett rum utan vägar framåt. Du ser en hög med skräp nere till vänster. ");
@@ -51,7 +51,6 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-right.png");
             R.HasKey(8, 9);
             lab[1] = R;
-            lab[1].SetDirections(N: noDoor, E: 2, S: noDoor, W: noDoor);
 
             R = new Room(2, "Vaktrum väst");
             R.SetStory("Du står i ett övergivet vaktrum. ");
@@ -59,7 +58,6 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-left.png");
             R.SetImage("room-door-right-closed.png");
             lab[2] = R;
-            lab[2].SetDirections(N: noDoor, E: -3, S: noDoor, W: 1);
 
             R = new Room(3, "Korsvägen");
             R.SetStory("Du står i korsväg. Det går gångar i alla riktningar. ");
@@ -69,7 +67,6 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-right-closed.png");
             // R.SetImage("vattar-nobg.png");
             lab[3] = R;
-            lab[3].SetDirections(N: 6, E: -4, S: 0, W: -2);
 
             R = new Room(4, "Vaktrum öst");
             R.SetStory("Du står i ett övergivet vaktrum. ");
@@ -78,7 +75,6 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-right.png");
             R.SetImage("garbage-right.png");
             lab[4] = R;
-            lab[4].SetDirections(N: noDoor, E: 5, S: noDoor, W: -3);
 
             R = new Room(5, "Lagerrum öst");
             R.SetStory("Du står i ett tomt rum. ");
@@ -86,13 +82,11 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-left.png");
             R.SetImage("room-door-forward.png");
             lab[5] = R;
-            lab[5].SetDirections(N: 7, E: noDoor, S: noDoor, W: 4);
 
             R = new Room(6, "Bron");
             R.SetStory("Du står vid en bro som går över en stor klyfta som du inte ser botten på. ");
             R.SetImage("bro.png");
             lab[6] = R;
-            lab[6].SetDirections(N: 9, E: noDoor, S: 3, W: noDoor);
 
             R = new Room(7, "Inre rum öst");
             R.SetStory("Du står i ett rum med bråte överallt. ");
@@ -101,7 +95,6 @@ namespace dtp11_MUD_1
             R.SetImage("garbage-right.png");
             R.HasKey(2, 3);
             lab[7] = R;
-            lab[7].SetDirections(N: noDoor, E: noDoor, S: 5, W: noDoor);
 
             R = new Room(8, "Trollisrum");
             R.SetStory("Du står i ett rum. ");
@@ -109,7 +102,6 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-right-closed.png");
             R.SetImage("trollis-nobg.png");
             lab[8] = R;
-            lab[8].SetDirections(N: noDoor, E: -9, S: noDoor, W: noDoor);
 
             R = new Room(9, "Svnuftrum");
             R.SetStory("Du står i ett rum-rum. ");
@@ -118,7 +110,38 @@ namespace dtp11_MUD_1
             R.SetImage("garbage-right.png");
             R.HasKey(3, 4);
             lab[9] = R;
+
+            Door D0_3 = new Door(lab[0], lab[3], false);
+            Door D1_2 = new Door(lab[1], lab[2], true);
+            Door D2_3 = new Door(lab[2], lab[3], false);
+            Door D3_6 = new Door(lab[3], lab[6], true);
+            Door D3_4 = new Door(lab[3], lab[4], false);
+            Door D4_5 = new Door(lab[4], lab[5], true);
+            Door D5_7 = new Door(lab[5], lab[7], true);
+            Door D6_9 = new Door(lab[6], lab[9], true);
+            Door D8_9 = new Door(lab[8], lab[9], false);
+
+
+            lab[0].SetDirections(N: -3, E: noDoor, S: noDoor, W: noDoor);
+            lab[0].setDoors(N: D0_3, E: null, S: null, W: null);
+            lab[1].SetDirections(N: noDoor, E: 2, S: noDoor, W: noDoor);
+            lab[1].setDoors(N: null, E: D1_2, S: null, W: null);
+            lab[2].SetDirections(N: noDoor, E: -3, S: noDoor, W: 1);
+            lab[2].setDoors(N: null, E: D2_3, S: null, W: D1_2);
+            lab[3].SetDirections(N: 6, E: -4, S: 0, W: -2);
+            lab[3].setDoors(N: D3_6, E: D3_4, S: D0_3, W: D1_2);
+            lab[4].SetDirections(N: noDoor, E: 5, S: noDoor, W: -3);
+            lab[4].setDoors(N: null, E: D4_5, S: null, W: D3_4);
+            lab[5].SetDirections(N: 7, E: noDoor, S: noDoor, W: 4);
+            lab[5].setDoors(N: D5_7, E: null, S: null, W: D4_5);
+            lab[6].SetDirections(N: 9, E: noDoor, S: 3, W: noDoor);
+            lab[6].setDoors(N: D6_9, E: null, S: D3_6, W: null);
+            lab[7].SetDirections(N: noDoor, E: noDoor, S: 5, W: noDoor);
+            lab[7].setDoors(N: null, E: null, S: D5_7, W: null);
+            lab[8].SetDirections(N: noDoor, E: -9, S: noDoor, W: noDoor);
+            lab[8].setDoors(N: null, E: D8_9, S: null, W: null);
             lab[9].SetDirections(N: noDoor, E: noDoor, S: 6, W: -8);
+            lab[9].setDoors(N: null, E: null, S: D6_9, W: D8_9);
 
             currentRoom = 0;
             DisplayCurrentRoom();
@@ -138,23 +161,63 @@ namespace dtp11_MUD_1
             }
             else if (e.Key == Key.Up)
             {
-                currentRoom = lab[currentRoom].GetNorth();
-                DisplayCurrentRoom();
+                Door D = lab[currentRoom].GetNorthDoor();
+                if(D == null)
+                {
+                    SoundEffect("ouch.wav");
+                    DisplayCurrentRoom("du gick in i väggen!");
+                }
+                else
+                {
+                    SoundEffect("footsteps-4.wav");
+                    Room nextRoom = D.NextRoom(lab[currentRoom]);
+                    currentRoom = nextRoom.number;
+                    DisplayCurrentRoom();
+                }
             }
             else if (e.Key == Key.Down)
             {
-                currentRoom = lab[currentRoom].GetSouth();
-                DisplayCurrentRoom();
+                Door D = lab[currentRoom].GetSouthDoor();
+                if (D == null)
+                {
+                    SoundEffect("ouch.wav");
+                    DisplayCurrentRoom("du backade in i väggen!");
+                }
+                else
+                {
+                    SoundEffect("footsteps-4.wav");
+                    Room nextRoom = D.NextRoom(lab[currentRoom]);
+                    currentRoom = nextRoom.number;
+                    DisplayCurrentRoom();
+                }
             }
             else if (e.Key == Key.Left)
             {
-                currentRoom = lab[currentRoom].GetWest();
-                DisplayCurrentRoom();
+                Door D = lab[currentRoom].GetWestDoor();
+                if (D == null)
+                {
+                    DisplayCurrentRoom("BOING!");
+                }
+                else
+                {
+                    Room nextRoom = D.NextRoom(lab[currentRoom]);
+                    currentRoom = nextRoom.number;
+                    DisplayCurrentRoom();
+                }
             }
             else if (e.Key == Key.Right)
             {
-                currentRoom = lab[currentRoom].GetEast();
-                DisplayCurrentRoom();
+                Door D = lab[currentRoom].GetEastDoor();
+                if (D == null)
+                {
+                    DisplayCurrentRoom("AJ! SATAN!!!");
+                }
+                else
+                {
+                    Room nextRoom = D.NextRoom(lab[currentRoom]);
+                    currentRoom = nextRoom.number;
+                    DisplayCurrentRoom();
+                }
             }
             
             else if (e.Key == Key.S)
@@ -191,7 +254,18 @@ namespace dtp11_MUD_1
                 DisplayCurrentRoom();
             }
         }
-        private void DisplayCurrentRoom()
+
+        private static void SoundEffect(string uri)
+        {
+            using (FileStream stream = File.Open(@uri, FileMode.Open))
+            {
+                SoundPlayer myNewSound = new SoundPlayer(stream);
+                myNewSound.Load();
+                myNewSound.Play();
+            }
+        }
+
+        private void DisplayCurrentRoom(string message = "")
         {
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
             Room R = lab[currentRoom];
@@ -217,6 +291,7 @@ namespace dtp11_MUD_1
             keyAlts[ix++].Text = "n        lås upp";
             keyAlts[ix++].Text = "escape   avsluta";
             while (ix < 7) keyAlts[ix++].Text = "";
+            ResponseText.Text = message;
         }
 
         private string CreateDirectionsText(Room R)
@@ -256,5 +331,15 @@ namespace dtp11_MUD_1
                 }
             }
         }
+        /*
+        private void PlaySound()
+        {
+            var uri = new Uri(@"C:\Users\Ruben\source\repos\dtp11_MUD_1\bin\Debug\net6.0-windows\footsteps-4.wav", UriKind.RelativeOrAbsolute);
+            var player = new MediaPlayer();
+
+            player.Open(uri);
+            player.Play();
+        }
+        */
     }
 }
