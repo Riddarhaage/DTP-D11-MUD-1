@@ -59,6 +59,22 @@ namespace dtp11_MUD_1
             }
         }
     }
+    public class Door
+    {
+        Room room1, room2;
+        bool isOpen;
+        public Door(Room r1, Room r2, bool open)
+        {
+            room1 = r1;
+            room2 = r2;
+            isOpen = open;
+        }
+        public Room NextRoom(Room current)
+        {
+            if (current == room1) return room2;
+            return room1;
+        }
+    }
     public class Room
     {
         // Constants and static members:
@@ -86,6 +102,7 @@ namespace dtp11_MUD_1
         public List<string> imageFile = new List<string>();
         public int[] adjacent = new int[4]; // adjacent[Room.North] etc.
         public bool[] isOpen = new bool[4]; // isOpen[Room.North] etc.
+        //public Door[] doors = new Door[4];
 
         // Stuff in this room:
         public List<LockKey> keys = new List<LockKey>();

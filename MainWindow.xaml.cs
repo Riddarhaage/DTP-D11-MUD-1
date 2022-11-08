@@ -24,7 +24,7 @@ namespace dtp11_MUD_1
         /// <summary>
         /// labyrinth contains the rooms in the game, it is used to find rooms
         /// </summary>
-        Room[] labyrinth = new Room[100];
+        Room[] lab = new Room[100];
         int currentRoom;
         List<LockKey> allKeys = new List<LockKey>();
         public MainWindow()
@@ -40,26 +40,26 @@ namespace dtp11_MUD_1
             R.SetImage("room-base.png");
             R.SetImage("room-door-forward-closed.png");
             R.SetImage("garbage-left.png");
-            R.SetDirections(N: -3, E: noDoor, S: noDoor, W: noDoor);
             R.HasKey(0, 3);
-            labyrinth[0] = R;
+            lab[0] = R;
+            lab[0].SetDirections(N: -3, E: noDoor, S: noDoor, W: noDoor);
 
             R = new Room(1, "Lagerrum väst");
             R.SetStory("Du står i ett rum utan vägar framåt. Du ser en hög med skräp nere till vänster. ");
             R.SetImage("room-base.png");
             R.SetImage("garbage-left.png");
             R.SetImage("room-door-right.png");
-            R.SetDirections(N: noDoor, E: 2, S: noDoor, W: noDoor);
             R.HasKey(8, 9);
-            labyrinth[1] = R;
+            lab[1] = R;
+            lab[1].SetDirections(N: noDoor, E: 2, S: noDoor, W: noDoor);
 
             R = new Room(2, "Vaktrum väst");
             R.SetStory("Du står i ett övergivet vaktrum. ");
             R.SetImage("room-base.png");
             R.SetImage("room-door-left.png");
             R.SetImage("room-door-right-closed.png");
-            R.SetDirections(N: noDoor, E: -3, S: noDoor, W: 1);
-            labyrinth[2] = R;
+            lab[2] = R;
+            lab[2].SetDirections(N: noDoor, E: -3, S: noDoor, W: 1);
 
             R = new Room(3, "Korsvägen");
             R.SetStory("Du står i korsväg. Det går gångar i alla riktningar. ");
@@ -68,8 +68,8 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-forward.png");
             R.SetImage("room-door-right-closed.png");
             // R.SetImage("vattar-nobg.png");
-            R.SetDirections(N: 6, E: -4, S: 0, W: -2);
-            labyrinth[3] = R;
+            lab[3] = R;
+            lab[3].SetDirections(N: 6, E: -4, S: 0, W: -2);
 
             R = new Room(4, "Vaktrum öst");
             R.SetStory("Du står i ett övergivet vaktrum. ");
@@ -77,48 +77,48 @@ namespace dtp11_MUD_1
             R.SetImage("room-door-left-closed.png");
             R.SetImage("room-door-right.png");
             R.SetImage("garbage-right.png");
-            R.SetDirections(N: noDoor, E: 5, S: noDoor, W: -3);
-            labyrinth[4] = R;
+            lab[4] = R;
+            lab[4].SetDirections(N: noDoor, E: 5, S: noDoor, W: -3);
 
             R = new Room(5, "Lagerrum öst");
             R.SetStory("Du står i ett tomt rum. ");
             R.SetImage("room-base.png");
             R.SetImage("room-door-left.png");
             R.SetImage("room-door-forward.png");
-            R.SetDirections(N: 7, E: noDoor, S: noDoor, W: 4);
-            labyrinth[5] = R;
+            lab[5] = R;
+            lab[5].SetDirections(N: 7, E: noDoor, S: noDoor, W: 4);
 
             R = new Room(6, "Bron");
             R.SetStory("Du står vid en bro som går över en stor klyfta som du inte ser botten på. ");
             R.SetImage("bro.png");
-            R.SetDirections(N: 9, E: noDoor, S: 3, W: noDoor);
-            labyrinth[6] = R;
+            lab[6] = R;
+            lab[6].SetDirections(N: 9, E: noDoor, S: 3, W: noDoor);
 
             R = new Room(7, "Inre rum öst");
             R.SetStory("Du står i ett rum med bråte överallt. ");
             R.SetImage("room-base.png");
             R.SetImage("garbage-left.png");
             R.SetImage("garbage-right.png");
-            R.SetDirections(N: noDoor, E: noDoor, S: 5, W: noDoor);
             R.HasKey(2, 3);
-            labyrinth[7] = R;
+            lab[7] = R;
+            lab[7].SetDirections(N: noDoor, E: noDoor, S: 5, W: noDoor);
 
             R = new Room(8, "Trollisrum");
             R.SetStory("Du står i ett rum. ");
             R.SetImage("room-base.png");
             R.SetImage("room-door-right-closed.png");
             R.SetImage("trollis-nobg.png");
-            R.SetDirections(N: noDoor, E: -9, S: noDoor, W: noDoor);
-            labyrinth[8] = R;
+            lab[8] = R;
+            lab[8].SetDirections(N: noDoor, E: -9, S: noDoor, W: noDoor);
 
             R = new Room(9, "Svnuftrum");
             R.SetStory("Du står i ett rum-rum. ");
             R.SetImage("room-base.png");
             R.SetImage("room-door-left-closed.png");
             R.SetImage("garbage-right.png");
-            R.SetDirections(N: noDoor, E: noDoor, S: 6, W: -8);
             R.HasKey(3, 4);
-            labyrinth[9] = R;
+            lab[9] = R;
+            lab[9].SetDirections(N: noDoor, E: noDoor, S: 6, W: -8);
 
             currentRoom = 0;
             DisplayCurrentRoom();
@@ -138,27 +138,28 @@ namespace dtp11_MUD_1
             }
             else if (e.Key == Key.Up)
             {
-                currentRoom = labyrinth[currentRoom].GetNorth();
+                currentRoom = lab[currentRoom].GetNorth();
                 DisplayCurrentRoom();
             }
             else if (e.Key == Key.Down)
             {
-                currentRoom = labyrinth[currentRoom].GetSouth();
+                currentRoom = lab[currentRoom].GetSouth();
                 DisplayCurrentRoom();
             }
             else if (e.Key == Key.Left)
             {
-                currentRoom = labyrinth[currentRoom].GetWest();
+                currentRoom = lab[currentRoom].GetWest();
                 DisplayCurrentRoom();
             }
             else if (e.Key == Key.Right)
             {
-                currentRoom = labyrinth[currentRoom].GetEast();
+                currentRoom = lab[currentRoom].GetEast();
                 DisplayCurrentRoom();
             }
+            
             else if (e.Key == Key.S)
             {
-                allKeys = labyrinth[currentRoom].getKeys(allKeys);
+                allKeys = lab[currentRoom].getKeys(allKeys);
                 DisplayCurrentRoom();
                 string txt = "";
                 foreach (LockKey lc in allKeys)
@@ -169,9 +170,9 @@ namespace dtp11_MUD_1
             }
             else if (e.Key == Key.N)
             {
-                labyrinth[currentRoom].Unlock(allKeys);
+                lab[currentRoom].Unlock(allKeys);
                 DisplayCurrentRoom();
-                Room R = labyrinth[currentRoom];
+                Room R = lab[currentRoom];
                 string txt = "";
                 for (int i = Room.North; i <= Room.West; i++)
                 {
@@ -193,7 +194,7 @@ namespace dtp11_MUD_1
         private void DisplayCurrentRoom()
         {
             string baseDir = AppDomain.CurrentDomain.BaseDirectory;
-            Room R = labyrinth[currentRoom];
+            Room R = lab[currentRoom];
             DrawImages(baseDir, R);
             string text = $"Du befinner dig i {R.roomname}. ";
             text += $"{R.story} ";
